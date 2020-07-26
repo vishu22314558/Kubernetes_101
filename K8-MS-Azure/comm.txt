@@ -1,0 +1,50 @@
+
+
+minikube start --driver=virtualbox
+kubectl run nginx --image nginx
+kubectl get pods -o wide
+kubectl get nodes 
+kubectl get services
+kubectl delete pod nginx
+minikube stop
+Kubectl describe pod nginx
+Kubectl get replicaset
+Kubectl describe replicaset myreplicaset
+kubectl delete ReplicaSet frontend
+
+#Update replica set - in memory 
+Kubectl edit replicates my app-replicset
+Kubectl scale replicas my app-replicase --replicas=2
+
+kubectl create -f deployment.yaml
+kubectl delete  deployment myapp-deployment
+
+kubectl rollout status Deployment.apps/myapp-deployment
+
+kubectl rollout history Deployment.apps/myapp-deployment
+
+kubectl create -f deployment.yaml --record
+kubectl rollout history Deployment.apps/myapp-deployment
+- image: nginx:1:18  :wq
+
+kubectl rollout status Deployment.apps/myapp-deployment
+
+-----
+kubectl get deployment
+
+kubectl create -f service-definitation.yaml
+
+kubectl get service
+minikube service myaoo-service --url
+
+---
+kubectl get deployment,svc
+
+
+
+
+
+
+
+
+
