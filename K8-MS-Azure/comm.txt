@@ -43,6 +43,24 @@ kubectl get deployment,svc
 Azure
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
+kubectl create -f voting-app-deploy.yaml
+kubectl create -f voting-app-service.yaml
+
+kubectl create -f radis-app-deploy.yaml
+kubectl create -f radis-app-service.yaml
+
+kubectl create -f postgres-app-deploy.yaml
+kubectl create -f postgres-app-service.yaml
+
+kubectl create -f worker-app-deploy.yaml
+
+kubectl create -f result-app-deploy.yaml
+kubectl create -f result-app-service.yaml
+
+kubectl get deployment,svc
+
+
+
 
 
 
