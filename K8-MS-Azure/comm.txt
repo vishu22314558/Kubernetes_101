@@ -40,6 +40,9 @@ minikube service myaoo-service --url
 ---
 kubectl get deployment,svc
 
+Azure
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+
 
 
 
