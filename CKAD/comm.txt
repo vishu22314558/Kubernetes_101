@@ -1,0 +1,32 @@
+Core Concepts
+#kubectl
+kubectl run hello-minicube
+kubectl cluster-info 
+kubectl get nodes
+
+kubectl run nginx --image nginx
+kubectl get pods
+
+kubectl create -f pod-definition.yaml
+kubectl get pods
+kubectl describe pod myapp-pod
+kubectl delete pod webapp
+#pull more info like node
+kubectl get pods -o wide 
+
+
+#inplace update
+kubectl edit pod redis
+:wq!
+
+If you are not given a pod definition file
+kubectl get pod redis -o yaml > pod-definition.yaml
+Then edit the file to make the necessary changes, delete and re-create the pod.
+
+
+
+
+
+
+
+
