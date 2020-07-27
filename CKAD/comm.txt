@@ -23,6 +23,54 @@ If you are not given a pod definition file
 kubectl get pod redis -o yaml > pod-definition.yaml
 Then edit the file to make the necessary changes, delete and re-create the pod.
 
+ReplicaSet (Controller - Replication)
+
+kubectl create -f replicaset-definition.yaml
+kubectl get relicaset
+kubectl delete replicaset myapp-relicaset
+kubectl edit replicaset new-replica-set  - change img replication 
+
+kubectl describe replicaset new-replica-set
+
+#update relicaset
+kubectl replace -f relicaset-definition.yaml
+kubectl scale --replicas=6 -f relicaset-definition.yaml
+kubectl --replicas=6 replicaset myapp-replicasset   (type and name)
+kubectl edit replicaset new-replica-set
+
+#create file from replicaset 
+kubectl get rs new-replica-set -o yaml > new-replicaset.yaml
+
+kubectl explain replicaset|grep VERSION
+
+------------- 
+-o json - Output a JSON formatted API object.
+-o name - Print only the resource name and nothing else.
+-o wide - Output in the plain-text format with any additional information.
+-o yaml - Output a YAML formatted API object.
+
+---------
+Imperative Commands
+
+--dry-run: By default as soon as the command is run, the resource will be created. If you simply want to test your command, use the --dry-run=client option. This will not create the resource, instead, tell you whether the resource can be created and if your command is right.
+
+-o yaml: This will output the resource definition in YAML format on the screen.
+
+Create an NGINX Pod
+    kubectl run nginx --image=nginx
+Generate POD Manifest YAML file (-o yaml). Don't create it(--dry-run)
+    kubectl run nginx --image=nginx  --dry-run=client -o yaml
+
+Create a deployment
+    kubectl create deployment --image=nginx nginx.
+Generate Deployment YAML file (-o yaml). Don't create it(--dry-run)
+    kubectl create deployment --image=nginx nginx --dry-run=client -o yaml
+
+Save it to a file - (If you need to modify or add some other details)
+    kubectl create deployment --image=nginx nginx --dry-run=client -o yaml > nginx-deployment.yaml
+
+Create a Service named redis-service of type ClusterIP to expose pod redis on port 6379
+    kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
 
 
 
